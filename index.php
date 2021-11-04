@@ -9,22 +9,23 @@
     $form_error = [];
     $has_error = false;
     $page = 1;
-    $count = 1;
+    $count = 2;
     if(isset($_POST['number_of_post']) && !empty($_POST['number_of_post'])) {
         $count = $_POST['number_of_post'];
     }
     if(isset($_GET['page'] ) && !empty($_GET['page'])) {
         $page = $_GET['page'];
     }
-    $all_posts = $posts->getData($page, $count);
 
-    if (isset($_POST['post'])){;
+    $page_posts = $posts->getData($page, $count);
+
+    if (isset($_POST['post'])){
         $post = new Post();
-//        var_dump($post->getErrors());
         if(count($post->getErrors()) == 0)
         {
+            $all_posts = $posts->getAllData();
             $new_data = $post->newData();
-            if($all_posts==NULL){
+            if($all_posts === NULL){
                 $all_posts[0] = $new_data;
             } else {
                 array_push($all_posts, $new_data);
@@ -37,7 +38,7 @@
             $has_error = true;
             $form_error = $post->getErrors();
         }
-        $all_posts = $posts->getData($page, $count);
+        $page_posts = $posts->getData($page, $count);
 
     }
 

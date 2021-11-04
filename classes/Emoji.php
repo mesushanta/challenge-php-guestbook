@@ -152,8 +152,8 @@ class Emoji
     ];
 
     public function convertEmoji($string) {
-        foreach($this->emojis as $key=>$emoji)
-        str_replace($key, $emoji, $string);
+        foreach($this->emojis as $key => $emoji)
+        $string = str_replace($key, $emoji, $string);
         return $string;
     }
 }

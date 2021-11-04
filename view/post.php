@@ -25,9 +25,7 @@
 
         <fieldset class="my-4">
             <label class="text-lg text-gray-800" for="content">Message</label>
-            <textarea wrap="off" name="content" type="text" class="px-4 py-4 my-2 block w-full border focus:outline-none focus:ring-1 <?php if(isset($form_error['content']) && !empty($form_error['content'])) { ?> border-red-400 focus:ring-red-400 <?php } else { ?> border-gray-400 focus:ring-blue-400 <?php } ?> focus:border-transparent text-gray-500 rounded-sm resize-none" value="">
-                <?php if(isset($_POST['content'])) { echo $_POST['content']; } ?>
-            </textarea>
+            <textarea id="select" name="content" type="text" class="px-4 py-4 my-2 block w-full border focus:outline-none focus:ring-1 <?php if(isset($form_error['content']) && !empty($form_error['content'])) { ?> border-red-400 focus:ring-red-400 <?php } else { ?> border-gray-400 focus:ring-blue-400 <?php } ?> focus:border-transparent text-gray-500 rounded-sm resize-none"><?php if(isset($_POST['author'])) { echo $_POST['author']; } ?></textarea>
             <?php if(isset($form_error['content']) && !empty($form_error['content'])) { ?>
                 <span class="text-red-700 text-sm font-light"><?php echo $form_error['content']; ?></span>
             <?php } ?>

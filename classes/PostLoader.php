@@ -49,6 +49,10 @@ class PostLoader
         return $filtered_data;
     }
 
+    public function getAllData() {
+        return$this->data;
+    }
+
     /**
      * @return bool
      */

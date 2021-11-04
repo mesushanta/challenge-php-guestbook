@@ -28,9 +28,6 @@ class Post
 
     }
 
-
-
-
     public function newData(): array
     {
         return [
