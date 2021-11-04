@@ -30,7 +30,7 @@
             } else {
                 array_push($all_posts, $new_data);
             }
-            var_dump($all_posts);
+
             $post->newPost($all_posts);
             $all_posts = $posts->getData($page, $count);
         }
@@ -38,8 +38,8 @@
             $has_error = true;
             $form_error = $post->getErrors();
         }
-        $page_posts = $posts->getData($page, $count);
 
+        header("Refresh:0");
     }
 
     require './view/sub/header.php';
